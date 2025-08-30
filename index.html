@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transparent Background</title>
+    <style>
+        body {
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("https://wallpapercave.com/wp/wp1991168.jpg");
+            background-size: cover;
+            background-position: center;
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .container {
+            justify-content: center;
+            padding-top: 130px;
+        }
+
+        .main {
+            border: 5px ridge white;
+            background-color: rgb(51, 50, 50);
+            height: 400px;
+            width: 400px;
+            z-index: 4;
+            position: relative;
+            border-radius: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            margin-bottom: 70px;
+        }
+
+
+        label {
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        input {
+            height: 40px;
+            width: 100%;
+            max-width: 300px;
+            margin-bottom: auto;
+        }
+
+        button {
+            background-color: white;
+            color: black;
+            height: 50px;
+            width: 70px;
+            border-radius: 20px;
+            position: absolute;
+            bottom: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="main">
+            <h1 style="color:white;">ℙ𝔸𝕊𝕊𝕎𝕆ℝ𝔻</h1>
+
+            <label style="font-size: 20px;">Random Password Generator:</label><br><br>
+            <input type="text">
+            <br>
+            <button id="btn">Press</button>
+        </div>
+
+    </div>
+    <script>
+
+        let b = document.querySelector("#btn")
+        b.addEventListener("click", function () {
+            let abc = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+            let pass = ""
+            
+          
+            for (let i = 0; i < 4; i++) {
+                let value = Math.floor(Math.random() * abc.length)
+                let num = Math.floor(Math.random() * 10)
+                pass = pass + abc[value] + num                                             // pass + = abc[]
+            }
+  
+            let h = document.getElementsByTagName("input")
+            h[0].value = pass
+        })
+
+    </script>
+    
+</body>
+
+</html>
+
+
+
+
+<!--1.  input tag mei inner text nhi hota 
+isme value aati hai ya hum valule dalte hai 
+2. innerText jis tag mei text likhte hai , jaise p tag , h tag ,etc -->
